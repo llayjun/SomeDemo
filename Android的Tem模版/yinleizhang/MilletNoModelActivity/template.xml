@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<template
+    format="5"
+    revision="5"
+    name="MilletNoModelActivity"
+    minApi="7"
+    minBuildApi="14"
+    description="">
+
+    <category value="Millet" />
+    <formfactor value="Mobile" />
+
+    <!-- input data -->
+    
+
+    <parameter
+        id="activityClass"
+        name="Activity Class"
+        type="string"
+	    constraints="class|unique|nonempty"
+        suggest="${layoutToActivity(layoutName)}"
+        default="MilletNoModelActivity"
+        help="Millet No Model Activity" />
+
+    <parameter
+        id="activityBinding"
+        name="Activity Binding"
+        type="string"
+	    constraints="class|unique|nonempty"
+        suggest="Activity${underscoreToCamelCase(classToResource(activityClass))}Binding"
+        default="ActivityMilletNoModelBinding"
+        help="Activity Millet No Model Binding" />
+
+    <parameter
+        id="layoutName"
+        name="Layout Name"
+        type="string"
+	    constraints="layout|unique|nonempty"
+        suggest="${activityToLayout(activityClass)}"
+        default="activity_millet_no_model"
+        help="Activity No Model xml" />
+
+    <parameter
+        id="packageName"
+        name="Package Name"
+        type="string"
+	    constraints="package"
+        default="com.lanba.tax"
+        help="包名" />
+
+    <!-- 128x128 thumbnails relative to com.puke.template.xml -->
+    <thumbs>
+        <!-- default thumbnail is required -->
+        <thumb>template_cover.png</thumb>
+    </thumbs>
+
+    <globals file="globals.xml.ftl" />
+    <execute file="recipe.xml.ftl" />
+
+</template>
